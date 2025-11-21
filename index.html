@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Architecte Make IA</title>
+  <meta name="description" content="G?n?rateur de sc?narios Make avec IA" />
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">??</span>
+        <span class="name">Architecte Make IA</span>
+      </div>
+      <nav class="nav">
+        <a href="#" class="nav-link">G?n?rateur</a>
+        <a href="#plan" class="nav-link">Plan</a>
+        <a href="#json" class="nav-link">Blueprint</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h1>Concepteur de sc?narios Make (avec IA)</h1>
+      <p class="muted">D?crivez votre id?e ou probl?me. Je con?ois un sc?nario Make int?grant une ?tape d'IA pour le rendre intelligent.</p>
+
+      <label for="idea" class="label">Votre id?e</label>
+      <textarea id="idea" class="textarea" rows="8" placeholder="Ex: Quand un formulaire Typeform est soumis, analyser les r?ponses avec l'IA, cr?er une ligne dans Google Sheets, puis envoyer un message Slack r?sumant les points cl?s."></textarea>
+
+      <div class="grid options">
+        <div>
+          <label for="trigger" class="label">D?clencheur par d?faut</label>
+          <select id="trigger" class="select">
+            <option value="webhook">Webhook (recommand?)</option>
+            <option value="schedule">Planification (cron)</option>
+            <option value="watch">Surveillance d'app (watch)</option>
+          </select>
+        </div>
+        <div>
+          <label for="aiModel" class="label">Mod?le IA</label>
+          <select id="aiModel" class="select">
+            <option value="gpt-4o-mini">OpenAI gpt-4o-mini</option>
+            <option value="gpt-4o">OpenAI gpt-4o</option>
+            <option value="gpt-4o-mini-translate">OpenAI gpt-4o-mini (traduction)</option>
+            <option value="mock">Mode hors-ligne (mock)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="label">Services pressentis</div>
+      <div class="chips" id="services">
+        <label class="chip"><input type="checkbox" value="typeform" class="service" /> Typeform</label>
+        <label class="chip"><input type="checkbox" value="webhook" class="service" /> Webhook</label>
+        <label class="chip"><input type="checkbox" value="sheets" class="service" /> Google Sheets</label>
+        <label class="chip"><input type="checkbox" value="slack" class="service" /> Slack</label>
+        <label class="chip"><input type="checkbox" value="gmail" class="service" /> Gmail</label>
+        <label class="chip"><input type="checkbox" value="notion" class="service" /> Notion</label>
+        <label class="chip"><input type="checkbox" value="calendar" class="service" /> Google Calendar</label>
+      </div>
+
+      <div class="actions">
+        <button id="generate" class="button">G?n?rer le sc?nario</button>
+        <button id="clear" class="button secondary">Effacer</button>
+      </div>
+    </section>
+
+    <section class="grid output">
+      <div class="card">
+        <div class="panel-header">
+          <h2>Plan d?taill?</h2>
+          <div class="panel-actions">
+            <button class="button ghost" data-copy="#plan">Copier</button>
+          </div>
+        </div>
+        <textarea id="plan" class="textarea mono" rows="18" readonly></textarea>
+      </div>
+
+      <div class="card">
+        <div class="panel-header">
+          <h2>Blueprint JSON (g?n?rique)</h2>
+          <div class="panel-actions">
+            <button class="button ghost" data-copy="#json">Copier</button>
+            <button id="download-json" class="button">T?l?charger JSON</button>
+          </div>
+        </div>
+        <textarea id="json" class="textarea mono" rows="18" readonly></textarea>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span class="muted">Construit pour g?n?rer des sc?narios Make avec IA. D?ploy? sur Vercel.</span>
+    </div>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
